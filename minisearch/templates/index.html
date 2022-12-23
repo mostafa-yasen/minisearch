@@ -3,11 +3,15 @@
 {% block title %} Keyward {% endblock %}
 
 {% block main %}
-
-<form class="form" onsubmit="">
-  <input type="text" class="form-control" placeholder="Enter your keyword">
-
-  <button type="submit" class="btn btn-primary mt-3 px-5">Search</button>
-</form>
+<main>
+  <h1>Search</h1>
+  <p class="lead">Find all similar values of a selected key and the percentage of these similarities
+    (text-matching).</p>
+  <form class="form" id="searchForm" action="results" method="get">
+    <input name="q" type="text" class="form-control" id="searchField" placeholder="Enter your keyword" required>
+  
+    <button type="submit" class="btn btn-primary mt-3 px-5">Search</button>
+  </form>
+</main>
 
 {% endblock %}
