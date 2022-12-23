@@ -3,6 +3,7 @@ import csv
 from django.shortcuts import render
 from .settings import DATASET_FILE
 import Levenshtein as lev
+from django.http import HttpResponseBadRequest, HttpResponseNotFound
 
 
 
@@ -18,6 +19,9 @@ def index(request):
 
 def search(request):
   q = request.GET.get('key')
+  if not q:
+    return HttpResponseBadRequest()
+
   results = dict()
   search_value = None
 
@@ -29,6 +33,9 @@ def search(request):
         search_value = row[1]
         print(f"Got search value {search_value}")
         break
+
+    if not search_value:
+      return HttpResponseNotFound()
 
     for i, row in enumerate(csv_data):
       if i == 0: continue
