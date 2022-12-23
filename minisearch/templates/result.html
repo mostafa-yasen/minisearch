@@ -4,6 +4,7 @@
 
 {% block main %}
 <main class="text-left w-100">
+  {% if results.keys %}
   <h2 class="text-secondary">
     Search results for <span class="text-light">{{ q }}</span>.
   </h2>
@@ -26,6 +27,11 @@
     </tr>
     {% endfor %}
   </table>
-</main>
 
+  {% else %}
+  <h2>
+    Sorry, can not find any matches above 50%. <a href="/">Try another key</a>
+  </h2>
+  {% endif %}
+</main>
 {% endblock %}
