@@ -5,8 +5,10 @@ from .settings import DATASET_FILE
 import Levenshtein as lev
 from django.http import HttpResponseBadRequest, HttpResponseNotFound
 
+from django_ratelimit.decorators import ratelimit
 
 
+@ratelimit(key='ip', rate='5/m')
 def index(request):
   with open(DATASET_FILE) as dataset_file:
     csv_data = csv.reader(dataset_file, delimiter=',')
@@ -17,6 +19,8 @@ def index(request):
 
   return render(request, 'index.html', {"values": values})
 
+
+@ratelimit(key='ip', rate='5/m')
 def search(request):
   q = request.GET.get('key')
   if not q:

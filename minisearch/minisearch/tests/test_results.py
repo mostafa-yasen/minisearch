@@ -1,10 +1,8 @@
 from django.test import TestCase
+from time import sleep
 
 
 class IndexTestCase(TestCase):
-  def setUp(self) -> None:
-    self.result = self.client.get("/results?key=")
-
   def test_key_is_required(self):
     response = self.client.get("/results?key=")
     self.assertEqual(response.status_code, 400, "Empty key should return 400 BAD REQUEST")
