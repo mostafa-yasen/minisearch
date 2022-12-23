@@ -8,7 +8,12 @@
   <p class="lead">Find all similar values of a selected key and the percentage of these similarities
     (text-matching).</p>
   <form class="form" id="searchForm" action="results" method="get">
-    <input name="q" type="text" class="form-control" id="searchField" placeholder="Enter your keyword" required>
+    <select name="key" id="key" class="form-control">
+      {% for v in values %}
+      <option value="{{v}}">{{ v }}</option>
+      {% endfor %}
+    </select>
+    <!-- <input name="q" type="text" class="form-control" id="searchField" placeholder="Enter your keyword" required> -->
   
     <button type="submit" class="btn btn-primary mt-3 px-5">Search</button>
   </form>

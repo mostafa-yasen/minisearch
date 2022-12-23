@@ -7,6 +7,21 @@
   <h2 class="text-secondary">
     Search results for <span class="text-light">{{ q }}</span>.
   </h2>
+
+  <table class="table table-dark table-striped text-light">
+    <thead>
+      <tr>
+        <th>Value</th>
+        <th>Match Percentage</th>
+      </tr>
+    </thead>
+    {% for value, percentage in results.items %}
+    <tr>
+      <td>{{ value }}</td>
+      <td>{{ percentage }} %</td>
+    </tr>
+    {% endfor %}
+  </table>
 </main>
 
 {% endblock %}
