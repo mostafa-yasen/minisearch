@@ -4,6 +4,7 @@ A simple search form using django framework
 
 ![](/images/index.png)
 ![](/images/results.png)
+![](/images/empty-state.png)
 
 
 ## Installation
