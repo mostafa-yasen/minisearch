@@ -2,7 +2,7 @@
 FROM python:3.10
 
 # setup environment variable
-ENV DockerHOME=/home/app/paymob-challenge
+ENV DockerHOME=/home/app/project
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
